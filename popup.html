@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Scraper</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        /* margin: 20px; */
+        padding: 10px;
+      }
+
+      button {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 style="text-align: center">Web Scraper</h3>
+    <button id="scrape">Collection</button>
+    <ul>
+      <li><strong>Website URL:</strong> <span id="url"></span></li>
+      <li><strong>Headings:</strong> <span id="headings"></span></li>
+      <li><strong>Paragraphs:</strong> <span id="paragraphs"></span></li>
+      <li><strong>Images:</strong> <span id="images"></span></li>
+      <li><strong>Links:</strong> <span id="links"></span></li>
+    </ul>
+    <script src="popup.js"></script>
+  </body>
+</html>
