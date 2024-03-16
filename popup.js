@@ -4,11 +4,17 @@ const headings = document.getElementById("headings");
 const paragraphs = document.getElementById("paragraphs");
 const images = document.getElementById("images");
 const links = document.getElementById("links");
+const medicareCardNumber = document.getElementById("medicareCardNumber");
 
 document.addEventListener("DOMContentLoaded", function () {
   scrapeBtn.addEventListener("click", function () {
-    chrome.runtime.sendMessage({
-      action: "scrape",
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      let tab = tabs[0];
+      let tabId = tab.id;
+      chrome.runtime.sendMessage({
+        action: "scrape",
+        tabId: tabId,
+      });
     });
 
     chrome.runtime.onMessage.addListener(function (
@@ -23,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         paragraphs.textContent = message.paragraphs;
         images.textContent = message.images;
         links.textContent = message.links;
+        medicareCardNumber.textContent = message.medicareCardNumber;
       }
     });
   });

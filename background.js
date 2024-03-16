@@ -9,7 +9,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     ) {
       if (message.action === "scrape") {
         console.log("message=======>", message);
-        //   const tabId = message.current_tabId;
+        // const tabId = message.tabId;
         chrome.tabs.sendMessage(tabId, {
           action: "scrapePage",
         });
@@ -28,6 +28,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
           paragraphs: message.data.paragraphs.length,
           images: message.data.images.length,
           links: message.data.links.length,
+          medicareCardNumber: message.data.medicareCardNumber,
         });
 
         url =
