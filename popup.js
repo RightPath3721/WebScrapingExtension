@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
   scrapeBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       let tab = tabs[0];
-      let tabId = tab.id;
       chrome.runtime.sendMessage({
         action: "scrape",
-        tabId: tabId,
+        tab: tab,
       });
     });
 
