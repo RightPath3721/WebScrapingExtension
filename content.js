@@ -1,4 +1,8 @@
 function scrapePage() {
+  const downloadButton = document.querySelector(
+    "button[aria-label='Download'], [data-resin-target='download']"
+  );
+
   const paragraphs = Array.from(document.querySelectorAll("p")).map((p) =>
     p.textContent.replace(/\s+/g, " ").replace(/\n/g, " ")
   );
